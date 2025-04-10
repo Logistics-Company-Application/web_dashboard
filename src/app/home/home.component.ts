@@ -1,6 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { DBService } from '../services/dbservice.service';
 import { Order } from '../models/order.type';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -13,13 +14,18 @@ export class HomeComponent {
 
   orders = signal<Array<Order>>([]);
 
-  ngOnInit(): void {
+  getOrders(){
     console.log("Getting all orders from DBService...");
     this.DBService.getAllOrders().subscribe((orders) =>{
-      console.log("Received orders: ", orders)
       this.orders.set(orders);
     })
   }
 
+  //refresh orders every 10 seconds
+  refreshOrders = interval(10000).subscribe(()=>{this.getOrders()});
+
+  ngOnInit(): void {
+    this.getOrders();
+  }
 
 }

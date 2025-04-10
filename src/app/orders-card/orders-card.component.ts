@@ -1,6 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { Location } from '@angular/common';
 import { Order } from '../models/order.type';
 import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -10,11 +12,10 @@ import { Router } from '@angular/router';
   styleUrl: './orders-card.component.scss'
 })
 export class OrdersCardComponent {
-  constructor(private router: Router){}
+  order = signal({});
 
-  ngOnInit(): void {
-    const currentNav = this.router.getCurrentNavigation();
-    // const id = currentNav.extras.state.id;
-    console.log(currentNav)
+  constructor(private router: Router){
+    const currentNav = this.router.getCurrentNavigation()
+    this.order.set(currentNav?.extras.state as Order)
   }
 }

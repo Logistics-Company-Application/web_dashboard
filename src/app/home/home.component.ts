@@ -31,7 +31,7 @@ export class HomeComponent {
   }
 
   routeToOrderPage(order: Order){
-    this.router.navigateByUrl('/order', {state: {id: 1}});
+    this.router.navigateByUrl('/order', {state: order});
   }
 
 }

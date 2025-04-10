@@ -34,4 +34,8 @@ export class HomeComponent {
     this.router.navigateByUrl('/order', {state: order});
   }
 
+  routeToAddOrderPage(){
+    this.router.navigateByUrl('/addOrder')
+  }
+
 }

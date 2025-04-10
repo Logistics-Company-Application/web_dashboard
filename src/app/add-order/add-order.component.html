@@ -1,0 +1,36 @@
+<div class="add-order-page">
+    <h4>Please fill in the required fields before submitting</h4>
+    <form>
+        <div class="form-element">
+            <label>Choose a product</label>
+            <select name="productName" [(ngModel)]="productName">
+                @for(option of possibleProductNames(); track option){
+                    <option value="{{option}}">{{option}}</option>
+                }
+            </select>
+        </div>
+        <div class="form-element">
+            <label>Choose a description</label>
+            <select name="description" [(ngModel)]="description">
+                @for(option of possibleDescriptions(); track option){
+                    <option value="{{option}}">{{option}}</option>
+                }
+            </select>
+        </div>
+        <div class="form-element">
+            <label>Choose a destination</label>
+            <select name="destination" [(ngModel)]="destination">
+                @for(option of possibleDestinations(); track option){
+                    <option value="{{option}}">{{option}}</option>
+                }
+            </select>
+        </div>
+        <div class="form-element">
+            <label>What is your name:</label>
+            <input name="buyerName" [(ngModel)]="buyerName" placeholder="Add name"/>
+        </div>
+        <br/><br/>
+        <button (click)="submitOrder()">Submit Order</button>
+    </form>
+</div>
+

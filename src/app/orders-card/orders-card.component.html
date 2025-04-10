@@ -1,8 +1,8 @@
 <div class="single-order">
-    <!-- <p>Order Id: {{order.orderId}}</p>
-    <p>Product Name: {{order.productName}}</p>
-    <p>Description: {{order.description}}</p>
-    <p>Destination: {{order.destination}}</p>
-    <p>Buyer Name: {{order.buyerName}}</p>
-    <p>Order Placed Timestamp: {{order.orderPlacedTimestamp}}</p> -->
+    <h3>Order for Product: {{order().productName}}</h3>
+    <p><strong>Order Id:</strong> {{order().orderId}}</p>
+    <p><strong>Description:</strong> {{order().description}}</p>
+    <p><strong>Destination:</strong> {{order().destination}}</p>
+    <p><strong>Buyer Name:</strong> {{order().buyerName}}</p>
+    <p><strong>Order Placed Timestamp:</strong> {{order().orderPlacedTimestamp | dateTime}}</p>
 </div>
